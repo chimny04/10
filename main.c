@@ -4,10 +4,24 @@
 
 int main(int argc, char *argv[])
 {
-     char str[30] = "happy C programming";
+     FILE* fp;
+     char c;
      
-     printf("length of string \"%s\": %i\n", str, strlen(str));
+     fp = fopen("sample.txt","r");
+     if ( fp == NULL)
+     {
+          printf("failed to open\n");
+          return 0;
+     }
+     
+     while((c=fgetc(fp)) != EOF)
+     {
+         putchar(c);
+     } 
+          
+     fclose(fp);
      
      system("PAUSE");	
      return 0;
+
 }
