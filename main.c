@@ -5,19 +5,16 @@
 int main(int argc, char *argv[])
 {
      FILE* fp;
-     char c;
+     char str[100];
+     int i; 
      
-     fp = fopen("sample.txt","r");
-     if ( fp == NULL)
-     {
-          printf("failed to open\n");
-          return 0;
+     fp = fopen("sample.txt","w");
+     
+     for(i=0; i<3; i++) {
+         printf("input a word: ");
+         scanf("%s", str);
+         fprintf(fp, "%s\n", str);
      }
-     
-     while((c=fgetc(fp)) != EOF)
-     {
-         putchar(c);
-     } 
           
      fclose(fp);
      
